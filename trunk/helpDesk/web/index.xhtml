@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"  
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/templates/template.xhtml">
+
+        <ui:define name="topo">
+            <h:head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <title>#{msg.sistema}</title>
+            </h:head>
+
+            <p:messages id="mensagens" autoUpdate="true"/> 
+        </ui:define>
+
+        <ui:define name="corpo">
+
+            <h:form id="formLogin">
+                <p:panel  header="#{msg.login}" style="margin-top: 200px; width: 350px; margin-left:auto; margin-right:auto;">  
+                    <h:panelGrid columns="2" cellpadding="5"> 
+
+                        <h:outputLabel for="usuario" value="#{msg.usuario}" />  
+                        <p:inputText value="#{loginBean.usuario}"   
+                                     id="usuario" 
+                                     label="usuario"
+                                     required="true"
+                                     requiredMessage="Campo Usuário obrigatório"/>  
+
+                        <h:outputLabel for="senha" value="#{msg.senha}" />  
+                        <p:inputText value="#{loginBean.senha}"   
+                                     id="senha" 
+                                     label="Senha"
+                                     required="true"
+                                     requiredMessage="Campo Senha obrigatório"  
+                                     type="password"/>  
+
+                        <f:facet name="footer">  
+                            <p:commandButton id="btnLogin" value="Login"  
+                                             actionListener="#{loginBean.login}"/>  
+                        </f:facet>  
+                    </h:panelGrid>   
+                </p:panel>  
+            </h:form>
+
+        </ui:define>
+
+        <ui:define name="rodape">
+            <p:panel style="text-align: right; margin-top: 100px; border: 0px">
+                <a target="blank" href="http://br.linkedin.com/in/brunosouzademaria">
+                    <img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33_pt_BR.png?locale=" width="160" height="33" border="0" alt="Visualizar perfil de Bruno Souza de Maria no LinkedIn"/>
+                </a>
+            </p:panel>
+        </ui:define>
+
+    </ui:composition>
+</html>
